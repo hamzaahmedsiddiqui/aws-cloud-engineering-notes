@@ -1,6 +1,6 @@
 
-<img src="[[Amazon_Web_Services_Logo.svg](https://icon2.cleanpng.com/20180817/vog/8968d0640f2c4053333ce7334314ef83.webp)](https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/960px-Amazon_Web_Services_Logo.svg.png)">
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/960px-Amazon_Web_Services_Logo.svg.png">
+<!-- ![Alt text](https://example.com/image.png) -->
 # AWS Cloud Foundations
 
 ## AWS Cloud Overview
