@@ -1,2 +1,12 @@
-# aws-cloud-engineering-notes
-AWS cloud engineering notes and hands-on labs: networking, security, storage, automation, monitoring, databases, and architecture.
+# AWS Cloud Foundations
+
+## AWS Cloud Overview
+(image)
+
+## Core AWS Services
+(image)
+
+## Architecture Basics
+(image)
+
+## Security and Shared Responsibility
