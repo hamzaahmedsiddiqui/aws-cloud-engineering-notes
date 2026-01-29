@@ -1,5 +1,5 @@
-# AWS Pricing — Complete Student Notes
-
+# AWS Pricing basics
+![Alt text](/images/pricing.png)
 This document explains **AWS pricing from the ground up**, written for students.
 Clear concepts, exam-ready language, no fluff.
 
