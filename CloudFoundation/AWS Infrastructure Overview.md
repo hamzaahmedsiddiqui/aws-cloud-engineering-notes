@@ -1,13 +1,13 @@
 # AWS Infrastructure Overview
 
 This section explains **how AWS is physically and logically built** to deliver cloud services worldwide.  
-As a student, focus on **Regions, Availability Zones, and Edge Locations** — these are exam favorites.
+As a student, focus on **Regions, Availability Zones, and Edge Locations** — these are exam favourites.
 
 ---
 
 ## What Is AWS Infrastructure?
 
-[Amazon Web Services](chatgpt://generic-entity?number=0) infrastructure is the **global network of data centers** that AWS uses to run cloud services.
+Amazon Web Services infrastructure is the **global network of data centres** that AWS uses to run cloud services.
 
 AWS designs its infrastructure to provide:
 - High availability
@@ -19,6 +19,8 @@ AWS designs its infrastructure to provide:
 Instead of one big data center, AWS spreads infrastructure **across the world**.
 
 ---
+## Common Services of AWS 
+![Alt text](/images/commonServices.png)
 
 ## Core Components of AWS Global Infrastructure
 
