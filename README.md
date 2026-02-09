@@ -4,7 +4,6 @@
 
 # AWS Cloud Foundations
 
-## AWS Cloud Overview
 ![Alt text](/images/aws-overview.png)
 
 ## ORIGIN OF AWS
@@ -36,3 +35,6 @@ Users can easily scale their applications up or down based on demand.
 Pay-as-you-go: Customers pay only for what they use, which can be more cost-effective than maintaining their own servers.
 Reliability: AWS offers high availability and robust security features.
 Innovation: Constantly adding new features and services to meet evolving customer needs. Key Takeaways: AWS started as a tool for developers to interact with Amazon’s product catalogue. It officially launched in 2006 with EC2 and S3 as the core services. By 2010, Amazon.com itself was running on AWS, showcasing its reliability and scalability. Today, AWS offers a wide range of services globally and serves millions of customers across various industries.
+
+### 📘 Disclaimer & Copyright Notice
+###### This repository contains personal study notes and screenshots taken during my participation in the AWS re/Start program. All screenshots, diagrams, and course-related materials remain the property of Amazon Web Services (AWS).They are shared solely for personal learning, revision, and educational reference. If AWS or any rights holder requests removal of specific content, it will be taken down immediately
