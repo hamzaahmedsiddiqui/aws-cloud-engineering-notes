@@ -1,0 +1,138 @@
+## Amazon S3 Bucket
+
+Amazon Simple Storage Service (Amazon S3) is a scalable and secure object storage service provided by Amazon Web Services (AWS). It allows you to store and retrieve any amount of data from anywhere on the web. Amazon S3 is designed for durability, availability, and performance, making it an ideal solution for a wide range of use cases, including backup and restore, archiving, big data analytics, and content distribution.
+### Key Features of Amazon S3:
+1. **Scalability**: Amazon S3 can scale to store and retrieve any amount
+of data, making it suitable for both small and large applications.
+2. **Durability**: Amazon S3 is designed for 99.999999999
+(11 nines) durability, ensuring that your data is safe and protected against loss.
+3. **Availability**: Amazon S3 provides high availability with multiple storage classes and options for
+data replication across regions.
+4. **Security**: Amazon S3 offers multiple layers of security, including encryption at rest
+and in transit, access control policies, and integration with AWS Identity and Access Management (IAM).
+5. **Cost-Effective**: Amazon S3 offers a pay-as-you-go pricing model
+that allows you to only pay for the storage and data transfer you use, with no upfront costs.
+6. **Data Management**: Amazon S3 provides features for data lifecycle management, allowing you
+to automate the transition of data to different storage classes or delete it after a specified period.
+7. **Integration with AWS Services**: Amazon S3 integrates seamlessly with other AWS services,
+such as AWS Lambda, Amazon CloudFront, and Amazon RDS, enabling you to build powerful applications and workflows.
+
+## S3 bucket types
+- **Standard Storage**: This is the default storage class for Amazon S3, offering high durability and availability for frequently accessed data.
+- **Intelligent-Tiering**: This storage class automatically moves data between two access tiers (
+frequent access and infrequent access) based on changing access patterns, optimizing costs without performance impact.
+- **Standard-IA (Infrequent Access)**: This storage class is designed for data
+that is accessed less frequently but requires rapid access when needed. It offers lower storage costs compared to Standard Storage, but with a retrieval fee.
+- **One Zone-IA**: This storage class is similar to Standard-IA but stores
+data in a single Availability Zone, making it a cost-effective option for infrequently accessed data that can be recreated if lost.
+- **Glacier**: This storage class is designed for long-term archival of data that is
+infrequently accessed. It offers low storage costs but has a retrieval time of several hours.
+- **Glacier Deep Archive**: This storage class is designed for long-term archival of data
+that is rarely accessed. It offers the lowest storage costs but has a retrieval time of 12 hours or more.
+## Use cases
+- Backup and restore: Amazon S3 can be used to store backups of data and applications, providing a reliable and scalable solution for disaster recovery.
+- Archiving: Amazon S3 is ideal for archiving data that is infrequently accessed but
+needs to be retained for long periods of time, such as compliance records or historical data.
+- Big data analytics: Amazon S3 can be used to store and analyze large datasets, making
+it a popular choice for big data analytics applications.
+- Content distribution: Amazon S3 can be used to store and distribute content, such as images
+and videos, to users around the world with low latency and high performance.
+- Static website hosting: Amazon S3 can be used to host static websites, allowing you to
+serve web content directly from S3 with high availability and scalability.
+- Data lakes: Amazon S3 can be used to create data lakes, allowing you to store
+and analyze large volumes of structured and unstructured data in a central repository.
+- Disaster recovery: Amazon S3 can be used to store critical data and applications for disaster recovery
+purposes, ensuring that your business can quickly recover from unexpected events.
+- Application hosting: Amazon S3 can be used to host applications and serve content, providing a
+scalable and cost-effective solution for web and mobile applications.
+- Machine learning: Amazon S3 can be used to store and process data for machine learning applications
+and can be integrated with services like Amazon SageMaker for building and deploying machine learning models.
+
+### What is S3 Intelligent-Tiering?
+
+![Alt text](/images/s3-intelligent-tiering-working.png)
+
+S3 Intelligent-Tiering is designed to optimize cost by automatically storing objects in three access tiers:
+- Frequent Access
+- Infrequent Access
+- Archive Instant Access
+
+Optional tiers include the following:
+- Archive Access
+- Deep Archive Access
+
+### AWS S3 Bucket policy:
+An S3 bucket policy is a JSON document that defines permissions for the objects in an S3 bucket. It allows you to specify who can access the bucket and what actions they can perform on the objects within it. Bucket policies are used to control access to S3 buckets and can be applied at the bucket level or at the object level.
+A bucket policy consists of one or more statements, each of which defines a specific permission. Each
+statement includes the following elements:
+- **Effect**: Specifies whether the statement allows or denies access. The possible values are "
+Allow" or "Deny".
+- **Principal**: Specifies the AWS account or IAM user that is allowed or denied access to
+the bucket. This can be a specific AWS account, an IAM user, or a wildcard (*) to allow access to all users.
+- **Action**: Specifies the actions that are allowed or denied on the bucket. This can
+include actions such as "s3:GetObject" (to allow read access) or "s3:PutObject" (to allow write access).
+- **Resource**: Specifies the bucket and objects that the policy applies to. This can include
+the bucket itself (using the bucket ARN) or specific objects within the bucket (using object ARNs).
+By defining bucket policies, you can control access to your S3 buckets and ensure that only authorized
+users or accounts can perform specific actions on the objects within the bucket. This is an important aspect of securing your data in Amazon S3 and ensuring that it is only accessible to those who should have access to it.
+#### for example
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::example-bucket/*"
+    }
+  ]
+}
+```
+In this example, the bucket policy allows anyone (Principal: "*") to perform the "s3:GetObject" action on any object within the "example-bucket". This means that anyone can read objects from this bucket, but they cannot write to it or perform any other actions unless additional permissions are granted through other policies or access control mechanisms.
+
+## Common Amazon S3 AWS CLI commands
+- Create a bucket: `aws s3 mb s3://my-bucket`
+- List buckets: `aws s3 ls`
+- Upload a file: `aws s3 cp myfile.txt s3://my-bucket
+- Download a file: `aws s3 cp s3://my-bucket/myfile.txt .`
+- Sync a local directory to a bucket: `aws s3 sync my-local-directory s3
+://my-bucket`
+- Sync a bucket to a local directory: `aws s3 sync s3://my-b
+ucket my-local-directory`
+- Delete a file: `aws s3 rm s3://my-bucket/myfile.txt
+- Delete a bucket: `aws s3 rb s3://my-bucket --force`
+
+## Amazon S3 public access settings
+Amazon S3 provides several settings to control public access to your buckets and objects. These settings help you prevent unintended exposure of your data to the public. The main public access settings in Amazon S3 include:
+1. **Block Public Access**: This setting allows you to block all public access to your
+buckets and objects. When enabled, it prevents any public access permissions from being applied to your buckets and objects, ensuring that they are not accessible to the public.
+2. **Bucket Policy**: You can use bucket policies to explicitly allow or deny public access
+to your buckets and objects. By defining a bucket policy, you can specify who can access your data and what actions they can perform on it.
+3. **Access Control Lists (ACLs)**: ACLs allow you to grant specific permissions
+to individual AWS accounts or groups. You can use ACLs to control access to your buckets and objects, including granting or denying public access.
+4. **Object Ownership**: This setting allows you to specify who owns the objects in your bucket. By default, the bucket owner owns all objects in the bucket, but you can change this setting to allow object ownership by the AWS account that uploads the object. This can help prevent unintended public access to your objects.
+5. **Public Access Block Settings**: This setting allows you to block public access at the
+account level, preventing any public access permissions from being applied to any buckets or objects in your account.
+By configuring these public access settings, you can ensure that your data in Amazon S3 is secure and only accessible to authorized users or accounts. It is important to regularly review and update your public access settings to prevent unintended exposure of your data to the public.
+### Event notification for Amazon S3 with digram 
+![Alt text](/images/s3-event-notification.png)
+
+Amazon S3 event notifications allow you to receive notifications when certain events occur in your S3 bucket
+or objects. These events can include actions such as object creation, deletion, or updates. You can configure event notifications to trigger specific actions, such as sending a message to an Amazon Simple Notification Service (SNS) topic, invoking an AWS Lambda function, or sending a message to an Amazon Simple Queue Service (SQS) queue.
+To set up event notifications for Amazon S3, you can follow these steps:
+1. Go to the Amazon S3 console and select the bucket for which you want to configure event notifications.
+2. Click on the "Properties" tab and scroll down to the "Event notifications" section
+3. Click on the "Create event notification" button to create a new event notification.
+4. In the event notification configuration, specify the event types that you want to trigger the notification (e.g., "All object create events" or "All object delete events").
+5. Choose the destination for the event notification, such as an SNS topic, Lambda function, or SQS queue.
+6. Configure any additional settings for the event notification, such as filters to specify which objects or prefixes should trigger the notification.
+7. Save the event notification configuration to enable it for your S3 bucket.
+Once you have set up event notifications for your Amazon S3 bucket, you will receive notifications whenever
+the specified events occur, allowing you to automate actions or workflows based on changes to your S3 bucket or objects. This can be useful for a variety of use cases, such as triggering data processing workflows, sending alerts, or updating other systems when changes occur in your S3 bucket.
+
+
+### Conclusion
+Amazon S3 is a powerful and flexible object storage service that offers scalability, durability, and security
+for a wide range of use cases. With its pay-as-you-go pricing model and seamless integration with other AWS services, Amazon S3 provides a cost-effective and efficient solution for storing and retrieving data in the cloud. Whether you need to store backups, archive data, analyze big data, or host content, Amazon S3 can meet your needs with high performance and reliability.
+
